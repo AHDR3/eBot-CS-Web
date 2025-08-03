@@ -23,6 +23,7 @@ Matchs:
     config_full_score: { type: boolean }
     config_ot: { type: boolean }
     config_streamer: { type: boolean }
+    config_ready_on_halftime: { type: boolean }
     config_knife_round: { type: boolean }
     config_switch_auto: { type: boolean }
     config_auto_change_password: { type: boolean }

@@ -526,6 +526,7 @@ class matchsActions extends sfActions
         $newMatch->config_full_score = $match->config_full_score;
         $newMatch->config_ot = $match->config_ot;
         $newMatch->config_streamer = $match->config_streamer;
+        $newMatch->config_ready_on_halftime = $match->config_ready_on_halftime;
         $newMatch->config_knife_round = $match->config_knife_round;
         $newMatch->config_password = $match->config_password;
         $newMatch->map_selection_mode = $match->map_selection_mode;
@@ -755,7 +756,7 @@ class matchsActions extends sfActions
             if (!($match->getEnable())) {
                 if ($match->getStatus() == Matchs::STATUS_END_MATCH) {
                     $result[] = array("label" => "Archive", "route" => "match_put_archive", "add_class" => "btn-info", "type" => "routing");
-                    $result[] = array("label" => "Delete", "route" => "matchs_delete", "add_class" => "btn-danger", "type" => "routing");
+                    $result[] = array("label" => "Delete", "route" => "matchs_delete", "add_class" => "btn-danger", "type" => "routing");/apps/frontend/lib/myActions.class.php
                 } else if ($match->getEnable() == 0 && $match->getStatus() != 0) {
                     $result[] = array("label" => "Restart", "route" => "matchs_start_retry", "add_class" => "btn-success", "type" => "routing");
                     $result[] = array("label" => "Reset " . $match->getMap()->getMapName(), "route" => "matchs_reset", "add_class" => "btn-warning", "type" => "routing");
@@ -878,6 +879,7 @@ class matchsActions extends sfActions
                     }
                     $match->config_full_score = false;
                     $match->config_streamer = false;
+                    $match->config_ready_on_halftime = false;
                     $match->config_knife_round = true;
                     $match->identifier_id = $identifier;
 
